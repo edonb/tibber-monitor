@@ -1,0 +1,28 @@
+.header{
+    display: flex;
+    background-color: cornflowerblue;
+    height:4rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.header-home{
+    border:none;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    text-decoration: none;
+    margin: auto 0;
+    height: 100%;
+    width: 4rem;
+}
+
+.header-home:hover{
+    background-color: #5c88d7;
+}
+
+.header-charts{
+    display: flex;
+    height: available;
+    margin:0 4rem;
+    gap: 1rem;
+}
