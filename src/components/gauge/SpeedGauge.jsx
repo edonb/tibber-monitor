@@ -57,7 +57,6 @@ export function Speed({value, domain, unit, decimals}) {
                             x={70}
                             y={20}
                             dx={-"100%"}
-                            textLength={"100"}
                         >
                             {domain[1].toFixed(decimals)+unit}
                         </text>
