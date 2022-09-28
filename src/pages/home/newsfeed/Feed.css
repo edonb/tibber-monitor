@@ -56,9 +56,6 @@ h4 {
 	animation-duration: 250s;
 	
 }
-.news-ticker-h:hover { 
-	animation-play-state: paused; 
-}
 
 .news-ticker-h p{
 	display: flex;

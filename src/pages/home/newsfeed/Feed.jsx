@@ -17,22 +17,22 @@ const Feed = ({news}) => {
 
     return (
 
-<div class="ticker-wrapper-h">
+<div className="ticker-wrapper-h">
 	<div className="tittle-container">
-        <div class="title">
+        <div className="title">
         <h4>Nyheter</h4> 
     </div>
 
     <div className="triangle">
     </div>
     </div>
-    <div class="news-ticker-h">
+    <div className="news-ticker-h">
 	
     {
-        news.map( n => {
+        news.map( (n, i) => {
             return  (
 
-                <p><b>{n.title}</b>: {n.summary}</p>
+                <p key={i}> <b>{n.title}</b>: {n.summary}</p>
                     
             )
         })

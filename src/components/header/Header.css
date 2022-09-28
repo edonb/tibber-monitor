@@ -1,9 +1,10 @@
 .header{
     display: flex;
+    justify-content: space-between;
     background-color: cornflowerblue;
     height:4rem;
-    width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0 2rem;
+    font-size: 1.3rem;
 }
 
 .header-home{
@@ -26,3 +27,23 @@
     margin:0 4rem;
     gap: 1rem;
 }
+
+.header a{
+    margin-top: 1.5rem;
+}
+
+.headerLink {
+    margin-top: 1.5rem;
+  }
+
+  .next_page {
+    all: unset;
+    padding-right: 1.5rem;
+    cursor: pointer;
+    color:rgba(0,0,0,.5)
+  }
+
+  .next_page:hover {
+    color:black;
+  }
+
