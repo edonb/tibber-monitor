@@ -45,7 +45,7 @@ const PowerGauge = () => {
     if(priceNow){
         return  (
             <>
-            <Speed value={priceNow} domain={[0, 100]} />
+            <Speed value={priceNow} unit="kr" decimals={2} domain={[minPrice, maxPrice]} />
             </>
 
         )

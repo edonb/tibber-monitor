@@ -2,6 +2,7 @@ import Gauge from "../../../components/gauge/Gauge";
 import {SUBSCRIBE_POWER} from "../../../TibberApiComponents/GraphQL/Queries";
 import {useSubscription} from "@apollo/client";
 import React from "react";
+import {Speed} from "../../../components/gauge/SpeedGauge";
 
 const PowerGauge = () => {
     const {data, loading, error} = useSubscription(SUBSCRIBE_POWER)
@@ -17,7 +18,7 @@ const PowerGauge = () => {
     }
 
     const currentData = data.liveMeasurement
-    return <Gauge min={currentData.minPower} max={currentData.maxPower} current={currentData.power} unit="kwh" title="Power Usage"></Gauge>
+    return <Speed domain={[currentData.minPower, currentData.maxPower]} value={currentData.power} unit="kwh" title="Power Usage"></Speed>
 
 
 }

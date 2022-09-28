@@ -12,7 +12,7 @@ function getStroke (angle) {
     else return "#f87171"
 }
 
-export function Speed({value, domain}) {
+export function Speed({value, domain, unit, decimals}) {
     const gauge = useGauge({
         domain: domain,
         startAngle: 90,
@@ -31,30 +31,44 @@ export function Speed({value, domain}) {
             <svg style={{overflow: "visible"}} className="speed_gauge speed_gauge_container" >
                 <g id="ticks">
                     {gauge.ticks.map((angle) => {
-                        const asValue = gauge.angleToValue(angle);
-                        const showText = asValue % 20 === 0;
                         return (
                             <React.Fragment key={`tick-group-${angle}`}>
                                 <line
-                                    id={angle-90}
                                     style={{ stroke: `${getStroke(angle)}`}}
                                     strokeWidth={2}
-                                    {...gauge.getTickProps({
-                                        angle,
-                                        length: 8
-                                    })}
+                                    stroke={"black"}
+                                    x1={100*Math.cos((angle+90)/180 * Math.PI)}
+                                    x2={108*Math.cos((angle+90)/180 * Math.PI)}
+                                    y1={100*Math.sin((angle+90)/180 * Math.PI)}
+                                    y2={108*Math.sin((angle+90)/180 * Math.PI)}
                                 />
-                                {showText && (
-                                    <text
-                                        className="text-sm fill-gray-400 font-medium"
-                                        {...gauge.getLabelProps({ angle, offset: 20 })}
-                                    >
-                                        {asValue}
-                                    </text>
                                 )}
                             </React.Fragment>
                         );
                     })}
+                    <React.Fragment>
+                        <text
+                            x={-130}
+                            y={20}
+                        >
+                            {domain[0].toFixed(decimals)+unit}
+                        </text>
+                        <text
+                            x={70}
+                            y={20}
+                            dx={-"100%"}
+                            textLength={"100"}
+                        >
+                            {domain[1].toFixed(decimals)+unit}
+                        </text>
+                        <text
+                            x={-15}
+                            y={30}
+
+                        >
+                            {value.toFixed(decimals)+unit}
+                        </text>
+                    </React.Fragment>
                 </g>
                 <g id="needle">
                     <circle className="fill-gray-300" {...needle.base} r={12} />
