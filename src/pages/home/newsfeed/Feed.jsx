@@ -1,6 +1,8 @@
 import React, {createRef, useEffect, useMemo, useRef, useState} from "react";
 import useAnimation from "./use-animation";
 import usePrevious from "./use-previous";
+import Modal from 'react-modal';
+import ReactDOM from 'react-dom';
 import "./Feed.css"
 
 const durationTime = 100000; // seconds
@@ -24,18 +26,18 @@ const Feed = ({news}) => {
     <div className="triangle">
     </div>
     </div>
-        
+    <div class="news-ticker-h">
 	
     {
         news.map( n => {
             return  (
-            <div class="news-ticker-h">
+
                 <p><b>{n.title}</b>: {n.summary}</p>
-                    </div>
+                    
             )
         })
     }
-        </div>
+        </div></div>
     )
     
 }
