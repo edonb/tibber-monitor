@@ -1,6 +1,8 @@
 import React from "react";
 import "./Header.css"
+import { HomeIcon } from "./HomeIcon";
 import {Link, useLocation} from "react-router-dom";
+
 
 const Header = ({children}) => {
     const loc = useLocation().pathname
@@ -8,12 +10,22 @@ const Header = ({children}) => {
     return (
         <>
             <div className="header">
-                <Link pressed={loc==="/"?"Ja":null} to="/" className="header-home"> Home </Link>
-                <div className="header-charts">
-                    <Link pressed={loc==="/Prices"?"Ja":null} to="/Prices"> Price </Link>
-                    <Link pressed={loc==="/Gauge"?"Ja":null} to="/Gauge"> Gauge </Link>
-                    <Link pressed={loc==="/Usage"?"Ja":null} to="/Usage"> Usage</Link>
-                </div>
+
+            <a href="/" className="next_page"> 
+                <HomeIcon/>
+                 Home</a>
+
+
+                    <div className="headerLink">
+                        <a  pressed={loc==="/Prices"?"Ja":null} className="next_page" href="/Prices">
+                        Price</a>
+
+                        <a pressed={loc==="/Gauge"?"Ja":null} className="next_page" href="/Gauge">
+                        Gauge</a>
+
+                        <a pressed={loc==="/Usage"?"Ja":null} className="next_page" href="/Usage">
+                        Usage</a>
+                    </div>
             </div>
             {children}
         </>
@@ -21,3 +33,4 @@ const Header = ({children}) => {
 }
 
 export default Header
+
