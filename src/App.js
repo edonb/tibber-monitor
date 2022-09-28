@@ -1,5 +1,4 @@
 import './App.css';
-import GetUsers from "./TibberApiComponents/getusers/GetUsers";
 import Subscribe from "./TibberApiComponents/subscription/Subscribe";
 import Header from "./components/header/Header";
 import {

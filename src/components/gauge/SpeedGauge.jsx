@@ -1,31 +1,25 @@
-import React, { useState } from "react";
-import cc from "classcat";
+import React from "react";
 import { useGauge } from "use-gauge";
-import { motion, MotionConfig, useAnimationFrame } from "framer-motion";
-
-const useSpeedTest = () => {
-    const [value, setValue] = useState(0);
-
-    useAnimationFrame((t) => {
-        if (value >= 100) return;
-        setValue((t / 5500) * 100);
-    });
-
-    return {
-        value: Math.min(value, 100)
-    };
-};
+import "./SpeedGauge.css"
 
 
-function Speed({value, domain}) {
+function getStroke (angle) {
+    const value = (angle-90)/180 * 100
+    console.log(value)
+    if (value <= 20) return "#86efac"
+    else if (value > 20 && value <= 60) return "#d1d5db"
+    else if (value > 60 && value <= 80) return "#fde047"
+    else return "#f87171"
+}
+
+export function Speed({value, domain}) {
     const gauge = useGauge({
         domain: domain,
         startAngle: 90,
         endAngle: 270,
         numTicks: 21,
-        diameter: 400
+        diameter: 200
     });
-
     const needle = gauge.getNeedleProps({
         value,
         baseRadius: 8,
@@ -33,24 +27,17 @@ function Speed({value, domain}) {
     });
 
     return (
-        <div>
-            <svg className="w-full overflow-visible p-4" {...gauge.getSVGProps()}>
+        <div className="speed_gauge">
+            <svg style={{overflow: "visible"}} className="speed_gauge speed_gauge_container" >
                 <g id="ticks">
                     {gauge.ticks.map((angle) => {
                         const asValue = gauge.angleToValue(angle);
                         const showText = asValue % 20 === 0;
-
                         return (
                             <React.Fragment key={`tick-group-${angle}`}>
                                 <line
-                                    className={cc([
-                                        "stroke-gray-300",
-                                        {
-                                            "stroke-green-300": asValue <= 20,
-                                            "stroke-yellow-300": asValue >= 60 && asValue <= 80,
-                                            "stroke-red-400": asValue >= 80
-                                        }
-                                    ])}
+                                    id={angle-90}
+                                    style={{ stroke: `${getStroke(angle)}`}}
                                     strokeWidth={2}
                                     {...gauge.getTickProps({
                                         angle,
@@ -59,7 +46,7 @@ function Speed({value, domain}) {
                                 />
                                 {showText && (
                                     <text
-                                        className="fill-gray-400 font-medium"
+                                        className="text-sm fill-gray-400 font-medium"
                                         {...gauge.getLabelProps({ angle, offset: 20 })}
                                     >
                                         {asValue}
@@ -70,45 +57,13 @@ function Speed({value, domain}) {
                     })}
                 </g>
                 <g id="needle">
-                    <motion.circle
-                        className="fill-gray-200"
-                        animate={{
-                            cx: needle.base.cx,
-                            cy: needle.base.cy
-                        }}
-                        r={12}
-                    />
-                    <motion.circle
-                        className="fill-orange-400"
-                        animate={{
-                            cx: needle.base.cx,
-                            cy: needle.base.cy
-                        }}
-                        r={6}
-                    />
-                    <motion.line
-                        className="stroke-orange-400"
-                        strokeLinecap="round"
-                        strokeWidth={4}
-                        animate={{
-                            x1: needle.base.cx,
-                            x2: needle.tip.cx,
-                            y1: needle.base.cy,
-                            y2: needle.tip.cy
-                        }}
-                    />
+                    <circle className="fill-gray-300" {...needle.base} r={12} />
+                    <circle className="fill-gray-700" {...needle.base} />
+                    <circle className="fill-gray-700" {...needle.tip} />
+                    <polyline className="fill-gray-700" points={needle.points} />
+                    <circle className="fill-white" {...needle.base} r={4} />
                 </g>
             </svg>
         </div>
-    );
-}
-
-export function SpeedTest({value, domain}) {
-
-
-    return (
-        <MotionConfig transition={{ type: "tween", ease: "linear" }}>
-            <Speed value={value} domain={domain} />
-        </MotionConfig>
     );
 }
