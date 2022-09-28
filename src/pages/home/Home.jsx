@@ -10,7 +10,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <GetUsers/>
+            <NewsFeed/>
             <div className="home-gauges">
                 <div className="home-gauges-power"><PowerGauge/></div>
                 <div className="home-gauges-price"><PriceGauge/></div>

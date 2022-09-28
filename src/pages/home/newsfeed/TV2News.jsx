@@ -33,11 +33,7 @@ const NewsFeed = () => {
     if (!news) return
 
     return (
-        <div className={"news-container"}>
-            <ul className="news-list">
-                <Feed news={news}/>
-            </ul>
-        </div>
+            <Feed news={news}/>
     )
 }
 export default NewsFeed
