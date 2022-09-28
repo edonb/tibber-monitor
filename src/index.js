@@ -15,7 +15,7 @@ import {WebSocketLink} from "@apollo/client/link/ws";
 import {getMainDefinition} from "@apollo/client/utilities";
 
 
-const l = "Insert token here"
+const l = "QnzP8dCImHDgHJSQE0DfnG4gNLlOOpJ8JIamWTm9Ou4"
 
 const errorLink = onError(({
                                graphqlErrors, networkError
