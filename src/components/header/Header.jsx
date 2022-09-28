@@ -11,7 +11,7 @@ const Header = ({children}) => {
         <>
             <div className="header">
 
-            <a href="/" className="next_page"> 
+            <a pressed={loc==="/"?"Ja":null} href="/" className="next_page"> 
                 <HomeIcon/>
                  Home</a>
 
