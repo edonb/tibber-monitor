@@ -5,20 +5,22 @@
   "dependencies": {
     "@apollo/client": "^3.3.6",
     "@apollo/react-hooks": "^4.0.0",
-    "@progress/kendo-react-gauges": "^5.7.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "apollo-boost": "^0.4.9",
+    "chart.js": "^3.9.1",
     "eslint": "8.22.0",
+    "Faker": "npm:faker@^5.5.3",
     "graphql": "^15.8.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
-    "recharts": "^2.1.14",
-    "subscriptions-transport-ws": "^0.11.0",
-    "web-vitals": "^2.1.4"
+    "request": "^2.88.2",
+    "web-vitals": "^2.1.4",
+    "xml-js": "^1.6.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "faker": "^5.5.3"
   }
 }

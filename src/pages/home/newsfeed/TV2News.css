@@ -1,0 +1,27 @@
+.news-container{
+    border: black 2px solid;
+    margin: 0 3rem;
+
+}
+.news-list{
+    display: flex;
+    flex-direction: column;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline-start:0;
+    height:40vh;
+    overflow: auto;
+    scrollbar: none;
+}
+
+
+.news-card{
+    display: flex;
+    flex-direction: column;
+    height:40vh;
+
+}
+
+.news-list::-webkit-scrollbar {
+    display: none;
+}

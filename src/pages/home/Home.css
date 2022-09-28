@@ -1,0 +1,23 @@
+
+.home{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.home-gauges{
+    display: grid;
+    grid-template-columns: auto auto 20rem;
+    justify-content: center;
+}
+.home-gauges-power{
+    grid-column-start: 1;
+}
+.home-gauges-price{
+    grid-column-start: 2;
+}
+
+.home-news{
+    grid-column-start: 3;
+}
+

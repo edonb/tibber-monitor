@@ -1,22 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useSubscription} from "@apollo/client";
 import {SUBSCRIBE_LIVE} from "../GraphQL/Queries";
-import {CartesianGrid, Line, Tooltip, XAxis, LineChart} from "recharts";
-import ArcGaugeComponent from "../../gauge/Gauge";
-
-const graphPoint = {
-    min: Number,
-    max: Number,
-    mean: Number,
-    power: Number,
-    time: Date,
-
-}
 
 const Subscribe = () => {
     const [graph, setGraph] = useState([])
 
-    const {data, loading, error} = useSubscription( SUBSCRIBE_LIVE )
+    const {data, loading} = useSubscription( SUBSCRIBE_LIVE )
 
     useEffect(() => {
         if(!data) return
@@ -47,7 +36,6 @@ const Subscribe = () => {
 
     return(
         <div style={{display:"flex", justifyContent:"center", flexDirection:"column"}}>
-            <ArcGaugeComponent value={currentWidth}/>
         </div>
     )
 }

@@ -15,7 +15,7 @@ import {WebSocketLink} from "@apollo/client/link/ws";
 import {getMainDefinition} from "@apollo/client/utilities";
 
 
-const l = "private tibber token here"
+const l = "Insert token here"
 
 const errorLink = onError(({
                                graphqlErrors, networkError

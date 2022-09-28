@@ -56,3 +56,12 @@ subscription{
   }
 }
 `
+export const SUBSCRIBE_POWER = gql`
+subscription{
+  liveMeasurement(homeId:"c90d4949-7add-40fd-a275-343c5be90c6b"){
+    power
+    minPower
+    maxPower
+  }
+}
+`

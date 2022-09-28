@@ -7,18 +7,10 @@ import {LOAD_USERS} from "../GraphQL/Queries";
 function GetUsers() {
     const {data, error, loading} = useQuery(LOAD_USERS)
 
-    useEffect(()=> {
-        console.log("checking data")
-        console.log(`Our data: ${{data}}`)
-        console.log(data)
-        if (data) console.log(data.viewer.name)
-    }, [data])
-
     if (data){
         return (
             <div>
                 Hei {data.viewer.name}
-
             </div>
         )
     }

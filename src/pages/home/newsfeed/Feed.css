@@ -1,0 +1,26 @@
+.locations-list{
+    display: flex;
+    padding: 0;
+    position: relative;
+    marginLeft: 50%;
+    marginTop: 3rem;
+    transform: translate(-25%);
+    maxHeight: 200;
+    overflow: auto;
+
+}
+
+.news-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+
+}
+
+li{
+    text-align: left;
+    width: 100%;
+    margin: 0;
+
+}
