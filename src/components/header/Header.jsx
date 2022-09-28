@@ -1,34 +1,31 @@
 import React from "react";
 import "./Header.css"
-import {Location} from "react-router-dom";
 import { HomeIcon } from "./HomeIcon";
+import {Link, useLocation} from "react-router-dom";
 
 
 const Header = ({children}) => {
-
+    const loc = useLocation().pathname
+    console.log(loc)
     return (
         <>
             <div className="header">
+
             <a href="/" className="next_page"> 
                 <HomeIcon/>
                  Home</a>
 
 
                     <div className="headerLink">
-                        <a className="next_page" href="/Prices">
+                        <a  pressed={loc==="/Prices"?"Ja":null} className="next_page" href="/Prices">
                         Price</a>
 
-                        <a className="next_page" href="/Gauge">
+                        <a pressed={loc==="/Gauge"?"Ja":null} className="next_page" href="/Gauge">
                         Gauge</a>
 
-                        <a className="next_page" href="/Usage">
+                        <a pressed={loc==="/Usage"?"Ja":null} className="next_page" href="/Usage">
                         Usage</a>
                     </div>
-
-                
-
-
-
             </div>
             {children}
         </>

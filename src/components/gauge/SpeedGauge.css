@@ -1,0 +1,13 @@
+.speed_gauge{
+    display: flex;
+    align-content: center;
+
+}
+.speed_gauge_container{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    padding: 50% 0 0 50%;
+
+}

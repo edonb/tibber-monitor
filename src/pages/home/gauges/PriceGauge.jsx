@@ -2,7 +2,7 @@ import Gauge from "../../../components/gauge/Gauge";
 import {LOAD_PRICES} from "../../../TibberApiComponents/GraphQL/Queries";
 import {useQuery} from "@apollo/react-hooks";
 import {useEffect, useState} from "react";
-import {SpeedTest} from "../../../components/gauge/SpeedGauge";
+import {Speed} from "../../../components/gauge/SpeedGauge";
 
 
 
@@ -45,7 +45,7 @@ const PowerGauge = () => {
     if(priceNow){
         return  (
             <>
-            <SpeedTest value={priceNow} domain={[minPrice, maxPrice]} />
+            <Speed value={priceNow} unit="kr" decimals={2} domain={[minPrice, maxPrice]} />
             </>
 
         )
